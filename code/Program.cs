@@ -3,7 +3,7 @@ using CsvHelper;
 using disneyland_scripts;
 using Spectre.Console;
 
-using (var reader = new StreamReader("data.csv"))
+using (var reader = new StreamReader("universal.csv"))
 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 {
     var records = csv.GetRecords<RideInfo>().ToList();
