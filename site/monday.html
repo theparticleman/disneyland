@@ -6,41 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Website about our trip to Disneland" />
     <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="site.css">
     <style>
-        body {
-            font-family: Tahoma, Geneva, Verdana, sans-serif;
-            font-size: larger;
-            text-align: center;
-        }
         h4 {
             font-weight: 200;
-        }    
+        }
     </style>
     <script>
-        function toggleModal(input) {
-            
+        const data = {
+            "revenge": {
+                name: "Revenge of the Mummy",
+                wantToGo: ["Samuel", "Maxwell", "MJ"],
+                doNotCare: ["Melinda", "Nadine"],
+                doNotWantToGo: ["Madeline", "Melissa", "*Melody"]
+            },
+            "jurassic": {
+                name: "Jurassic World",
+                wantToGo: ["Samuel", "Maxwell", "MJ", "Melissa", "Melinda"],
+                doNotCare: ["Nadine", "Melody"],
+                doNotWantToGo: ["Madeline"]                
+            },
+            "mariokart": {
+                name: "Mario Kart",
+                wantToGo: ["Melissa", "Melody"],
+                doNotCare: ["Nadine", "Samuel", "Madeline", "MJ", "Melinda"],
+                doNotWantToGo: ["Maxwell"]
+            },
+            "transformers": {
+                name: "Transformers",
+                wantToGo: ["Samuel", "Melissa", "Melinda"],
+                doNotCare: ["Madeline", "Maxwell", "MJ", "Nadine", "Melody"],
+                doNotWantToGo: []
+            },
+            "studiotour": {
+                name: "Studio Tour",
+                wantToGo: ["Samuel", "Madeline", "Maxwell", "MJ", "Melinda", "Nadine"],
+                doNotCare: ["Melissa", "Melody"],
+                doNotWantToGo: []
+            },
+            "simpsons": {
+                name: "Simpons",
+                wantToGo: ["Samuel", "Madeline", "Melinda", "Melissa"],
+                doNotCare: ["Melody", "Maxwell", "MJ", "Nadine"],
+                doNotWantToGo: []
+            },
+            "hippogriff": {
+                name: "Flight of the Hippogriff",
+                wantToGo: ["Madeline", "Maxwell", "MJ"],
+                doNotCare: ["Samuel", "Melody", "Nadine", "Melinda", "Melissa"],
+                doNotWantToGo: []
+            },
+            "journey": {
+                name: "Harry Potter and the Forbidden Journey",
+                wantToGo: ["Samuel", "Madeline", "Maxwell", "MJ", "Nadine", "Melinda"],
+                doNotCare: [],
+                doNotWantToGo: ["Melissa", "*Melody"]
+            },
+            "panda": {
+                name: "Kung Fu Panda",
+                wantToGo: ["Maxwell", "Melinda", "Melody"],
+                doNotCare: ["Samuel", "Madeline", "MJ", "Nadine", "Melissa"],
+                doNotWantToGo: []
+            },
+            "waterworld": {
+                name: "WaterWorld",
+                wantToGo: ["Madeline", "Melinda"],
+                doNotCare: ["Maxwell", "MJ", "Nadine", "Melissa", "Melody"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "despicable": {
+                name: "Despicable Me",
+                wantToGo: ["Madeline", "Melissa", "Melinda", "Melody", "Maxwell"],
+                doNotCare: ["MJ", "Nadine"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "pets": {
+                name: "Secret Life of Pets",
+                wantToGo: ["Melissa", "Melody", "Maxwell"],
+                doNotCare: ["Madeline", "MJ", "Nadine", "Melinda"],
+                doNotWantToGo: ["Samuel"]
+            }
         }
     </script>
 </head>
+
 <body>
-    <h1>Monday Agenda</h1>
+    <h1><span onclick="history.back();">⬅️</span>Monday Agenda</h1>
     <h2><a href="https://maps.app.goo.gl/HrS56tjn6CHd9ngQ8" target="blank">Universal Studios Hollywood</a></h2>
     <h3>Park opens 9:00am</h3>
     <h4>It takes about 1hr to go from the hotel to the park</h4>
     <h3>Morning - Lower Lot</h3>
-    <h4 onclick="toggleModal('revenge')">Revenge of the Mummy</h4>
-    <h4>Jurassic World</h4>
-    <h4>Transformers</h4>
-    <h4>Mario Kart</h4>
+    <h4 onclick="showModal('revenge')">Revenge of the Mummy</h4>
+    <h4 onclick="showModal('jurassic')">Jurassic World</h4>
+    <h4 onclick="showModal('transformers')">Transformers</h4>
+    <h4 onclick="showModal('mariokart')">Mario Kart</h4>
     <h3>Late Morning\Afternoon - Upper Lot</h3>
-    <h4>Studio Tour</h4>
-    <h4>Simpsons</h4>
-    <h4>Flight of the Hippogriff</h4>
-    <h4>Forbidden Journey</h4>
-    <h4>Kung Fu Panda (show)</h4>
-    <h4>WaterWorld (show)</h4>
-    <h4>Despicable Me Minion Mayhem</h4>
-    <h4>Secret Life of Pets</h4>
+    <h4 onclick="showModal('studiotour')">Studio Tour</h4>
+    <h4 onclick="showModal('simpsons')">Simpsons</h4>
+    <h4 onclick="showModal('hippogriff')">Flight of the Hippogriff</h4>
+    <h4 onclick="showModal('journey')">Forbidden Journey</h4>
+    <h4 onclick="showModal('panda')">Kung Fu Panda (show)</h4>
+    <h4 onclick="showModal('waterworld')">WaterWorld (show)</h4>
+    <h4 onclick="showModal('despicable')">Despicable Me Minion Mayhem</h4>
+    <h4 onclick="showModal('pets')">Secret Life of Pets</h4>
     <h3>Park closes 6:00pm</h3>
 </body>
+<script src="site.js"></script>
 </html>
