@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Disneyland Rides</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Disneyland Rides" />
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="site.css">
+    <script>
+        const data = {
+            "jungle": {
+                name: "Jungle Cruise",
+                wantToGo: ["Maxwell", "Melinda", "Melody"],
+                doNotCare: ["Melissa", "MJ", "Madeline", "Nadine"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "tiki": {
+                name: "Tiki Room",
+                wantToGo: ["Melody", "Madeline", "Melissa", "Melinda"],
+                doNotCare: ["Nadine", "Maxwell", "MJ"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "teacups": {
+                name: "Mad Tea Party",
+                wantToGo: ["Madeline", "Melissa"],
+                doNotCare: ["Nadine", "Maxwell", "Melody", "Melinda", "MJ", "Samuel"],
+                doNotWantToGo: []
+            },
+            "dumbo": {
+                name: "Dumbo the Flying Elephant",
+                wantToGo: ["Melody"],
+                doNotCare: ["Nadine", "Madeline", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "alice": {
+                name: "Alice in Wonderland",
+                wantToGo: ["Nadine", "Melissa"],
+                doNotCare: ["Madeline", "Maxwell", "Melody", "Melinda", "MJ"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "casey jr": {
+                name: "Casey Jr's Circus Train",
+                wantToGo: ["Melody", "Melissa"],
+                doNotCare: ["Samuel", "Maxwell", "Nadine", "MJ"],
+                doNotWantToGo: ["Madeline", "Melinda"]
+            },
+            "king arthur": {
+                name: "King Arthur Carrousel",
+                wantToGo: ["Melody"],
+                doNotCare: ["Nadine", "Madeline", "Melissa", "Melinda", "MJ"],
+                doNotWantToGo: ["Samuel", "Maxwell"]
+            },
+            "storybook": {
+                name: "Storybook Land Canal Boats",
+                wantToGo: ["Melissa", "Melody"],
+                doNotCare: ["Samuel", "Maxwell", "Nadine", "Melinda", "MJ"],
+                doNotWantToGo: ["Madeline"]
+            },
+            "pinocchio": {
+                name: "Pinocchio's Daring Journey",
+                wantToGo: [],
+                doNotCare: ["Nadine", "Melody", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotWantToGo: ["Samuel", "Madeline"]
+            },
+            "matterhorn": {
+                name: "Matterhorn Bobsleds",
+                wantToGo: ["Samuel", "Madeline", "Maxwell", "MJ"],
+                doNotCare: ["Nadine", "Melody", "Melissa"],
+                doNotWantToGo: ["Melinda"]
+            },
+            "snow white": {
+                name: "Snow White's Enchanted Wish",
+                wantToGo: ["Melissa", "Melody"],
+                doNotCare: ["Madeline", "Maxwell", "MJ", "Nadine", "Melinda"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "mr toad": {
+                name: "Mr. Toad's Wild Ride",
+                wantToGo: ["Melissa", "Melody"],
+                doNotCare: ["Maxwell", "Melinda", "Nadine", "MJ"],
+                doNotWantToGo: ["Samuel", "Madeline"]
+            },
+            "peter pan": {
+                name: "Peter Pan's Flight",
+                wantToGo: ["Melissa", "MJ", "Melody"],
+                doNotCare: ["Madeline", "Maxwell", "Nadine", "Melinda"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "twain": {
+                name: "Mark Twain Riverboat",
+                wantToGo: ["Samuel", "Melinda", "MJ"],
+                doNotCare: ["Maxwell", "Melissa", "Nadine", "Melody"],
+                doNotWantToGo: ["Madeline"]
+            },
+            "big thunder": {
+                name: "Big Thunder Mountain Railroad",
+                wantToGo: ["Melody", "Samuel", "Madeline", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotCare: ["Nadine"],
+                doNotWantToGo: []
+            },
+            "falcon": {
+                name: "Millennium Falcon Smugglers Run",
+                wantToGo: ["Nadine", "Samuel", "Madeline", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotCare: ["Melody"],
+                doNotWantToGo: []
+            },
+            "resistance": {
+                name: "Rise of the Resistance",
+                wantToGo: ["Nadine", "Samuel", "Madeline", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotCare: ["Melody"],
+                doNotWantToGo: []
+            },
+            "canoes": {
+                name: "Davy Crockett's Explorer Canoes",
+                wantToGo: ["Melissa"],
+                doNotCare: ["Samuel", "Nadine", "Melody", "Melinda", "MJ"],
+                doNotWantToGo: ["Madeline", "Maxwell"]
+            },
+            "pirates": {
+                name: "Pirates of the Caribbean",
+                wantToGo: ["Samuel", "Madeline", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotCare: [],
+                doNotWantToGo: ["Nadine", "Melody"]
+            },
+            "mansion": {
+                name: "Haunted Mansion",
+                wantToGo: ["Madeline", "Maxwell", "Melissa", "Melinda", "MJ"],
+                doNotCare: ["Samuel", "Nadine", "Melody"],
+                doNotWantToGo: []
+            },
+            "astro": {
+                name: "Astro Orbiter",
+                wantToGo: [],
+                doNotCare: ["Samuel", "Madeline", "Maxwell", "Melissa", "Melinda", "MJ", "Nadine", "Melody"],
+                doNotWantToGo: []
+            },
+            "autopia": {
+                name: "Autopia",
+                wantToGo: ["Samuel", "Melissa", "Melody"],
+                doNotCare: ["Nadine", "Maxwell", "MJ"],
+                doNotWantToGo: ["Madeline", "Melinda"]
+            },
+            "buzz": {
+                name: "Buzz Lightyear Astro Blasters",
+                wantToGo: ["Madeline", "Melissa", "Melody"],
+                doNotCare: ["Nadine", "Maxwell", "Melinda", "MJ"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "star tours": {
+                name: "Star Tours",
+                wantToGo: ["Madeline", "Maxwell", "Melissa", "Melinda", "Nadine"],
+                doNotCare: ["Samuel", "Melody", "MJ"],
+                doNotWantToGo: []
+            },
+            "nemo": {
+                name: "Finding Nemo Submarine",
+                wantToGo: ["Samuel", "Melody"],
+                doNotCare: ["Melissa", "Melinda", "MJ", "Madeline", "Maxwell", "Nadine"],
+                doNotWantToGo: []
+            },
+            "space mountain": {
+                name: "Space Mountain",
+                wantToGo: ["Samuel", "Madeline", "Maxwell"],
+                doNotCare: ["Melissa", "Melinda", "MJ"],
+                doNotWantToGo: ["Nadine", "Melody"]
+            },
+            "gadget": {
+                name: "Chip n Dale's Gadget Coaster",
+                wantToGo: ["Samuel", "Madeline", "Maxwell", "Melinda", "MJ"],
+                doNotCare: ["Nadine", "Melody", "Melissa"],
+                doNotWantToGo: []
+            },
+            "roger": {
+                name: "Roger Rabbit's CarToon Spin",
+                wantToGo: ["Melissa"],
+                doNotCare: ["Madeline", "Maxwell", "Nadine", "Melody", "Melinda", "MJ"],
+                doNotWantToGo: ["Samuel"]
+            },
+            "small world": {
+                name: "It's a Small World",
+                wantToGo: ["Melissa", "Melody"],
+                doNotCare: ["Nadine", "Melinda", "MJ", "Madeline"],
+                doNotWantToGo: ["Samuel", "Maxwell"]
+            },
+            "mickey": {
+                name: "Mickey and Minnie's Runaway Railway",
+                wantToGo: ["Samuel", "Madeline", "Maxwell", "Melissa", "Melinda", "Melody"],
+                doNotCare: ["Nadine", "MJ"],
+                doNotWantToGo: []
+            }
+        }  
+    </script>
+</head>
+
+<body>
+    <main>
+        <h1><span onclick="history.back();">⬅️</span>Disneyland Rides</h1>
+        <h2>Click on a ride to see who does and does not want to ride that ride</h2>
+        <h4>Rides with an asterisk have Lightning Lane</h4>
+        <h3>Adventureland</h3>
+        <h4 onclick="showModal('jungle')">Jungle Cruise</h4>
+        <h4 onclick="showModal('tiki')">Tiki Room</h4>
+        <h3>Fantasyland</h3>
+        <h4 onclick="showModal('teacups')">Mad Tea Party</h4>
+        <h4 onclick="showModal('dumbo')">Dumbo the Flying Elephant (split)</h4>
+        <h4 onclick="showModal('alice')">Alice in Wonderland</h4>
+        <h4 onclick="showModal('casey jr')">Casey Jr's Circus Train</h4>
+        <h4 onclick="showModal('king arthur')">King Arthur Carrousel (split)</h4>
+        <h4 onclick="showModal('storybook')">Storybook Land Canal Boats</h4>
+        <h4 onclick="showModal('pinocchio')">Pinocchio's Daring Journey</h4>
+        <h4 onclick="showModal('matterhorn')">Matterhorn Bobsleds* (split)</h4>
+        <h4 onclick="showModal('snow white')">Snow White's Enchanted Wish</h4>
+        <h4 onclick="showModal('mr toad')">Mr. Toad's Wild Ride</h4>
+        <h4 onclick="showModal('peter pan')">Peter Pan's Flight</h4>
+        <h3>Frontierland</h3>
+        <h4 onclick="showModal('twain')">Mark Twain Riverboat</h4>
+        <h4 onclick="showModal('big thunder')">Big Thunder Mountain Railroad*</h4>
+        <h3>Galaxy's Edge</h3>
+        <h4 onclick="showModal('falcon')">Millenium Falcon Smugglers Run*</h4>
+        <h4 onclick="showModal('resistance')">Rise of the Resistance</h4>
+        <h3>New Orleans Square</h3>
+        <h4 onclick="showModal('canoes')">Davy Crockett's Explorer Canoes (split)</h4>
+        <h4 onclick="showModal('pirates')">Pirates of the Caribbean*</h4>
+        <h4 onclick="showModal('mansion')">Haunted Mansion</h4>
+        <h3>Tomorrowland</h3>
+        <h4 onclick="showModal('astro')">Astro Orbiter</h4>
+        <h4 onclick="showModal('autopia')">Autopia* (split)</h4>
+        <h4 onclick="showModal('buzz')">Buzz Lightyear Astro Blasters*</h4>
+        <h4 onclick="showModal('star tours')">Star Tours*</h4>
+        <h4 onclick="showModal('nemo')">Finding Nemo (split?)</h4>
+        <h4 onclick="showModal('space mountain')">Space Mountain* (split)</h4>
+        <h3>Toontown</h3>
+        <h4 onclick="showModal('gadget')">Chip n Dale's Gadget Coaster</h4>
+        <h4 onclick="showModal('roger')">Roger Rabbit's CarTOON Spin*</h4>
+        <h4 onclick="showModal('small world')">It's a Small World*</h4>
+        <h4 onclick="showModal('mickey')">Mickey and Minnie's Runaway Railway*</h4>
+    </main>
+</body>
+<script src="site.js"></script>
+
+</html>
